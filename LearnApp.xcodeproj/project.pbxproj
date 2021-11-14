@@ -13,6 +13,8 @@
 		EF2E281B2735D83E00D95861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF2E281A2735D83E00D95861 /* Assets.xcassets */; };
 		EF2E281E2735D83E00D95861 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2E281C2735D83E00D95861 /* LaunchScreen.storyboard */; };
 		EF994F43273DA07800D475B9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF994F42273DA07800D475B9 /* GameViewController.swift */; };
+		EFEA90532741954400C7BD90 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEA90522741954400C7BD90 /* Game.swift */; };
+		EFEA905627419C5900C7BD90 /* StatusGameEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEA905527419C5900C7BD90 /* StatusGameEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		EF2E281D2735D83E00D95861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF2E281F2735D83E00D95861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF994F42273DA07800D475B9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		EFEA90522741954400C7BD90 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		EFEA905527419C5900C7BD90 /* StatusGameEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusGameEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		EF2E28102735D83D00D95861 /* LearnApp */ = {
 			isa = PBXGroup;
 			children = (
+				EFEA905427419C2600C7BD90 /* Enums */,
 				EF2E28112735D83D00D95861 /* AppDelegate.swift */,
 				EF2E28132735D83D00D95861 /* SceneDelegate.swift */,
 				EF2E28172735D83D00D95861 /* Main.storyboard */,
@@ -63,8 +68,17 @@
 				EF2E281C2735D83E00D95861 /* LaunchScreen.storyboard */,
 				EF2E281F2735D83E00D95861 /* Info.plist */,
 				EF994F42273DA07800D475B9 /* GameViewController.swift */,
+				EFEA90522741954400C7BD90 /* Game.swift */,
 			);
 			path = LearnApp;
+			sourceTree = "<group>";
+		};
+		EFEA905427419C2600C7BD90 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				EFEA905527419C5900C7BD90 /* StatusGameEnum.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +154,8 @@
 				EF2E28122735D83D00D95861 /* AppDelegate.swift in Sources */,
 				EF994F43273DA07800D475B9 /* GameViewController.swift in Sources */,
 				EF2E28142735D83D00D95861 /* SceneDelegate.swift in Sources */,
+				EFEA905627419C5900C7BD90 /* StatusGameEnum.swift in Sources */,
+				EFEA90532741954400C7BD90 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

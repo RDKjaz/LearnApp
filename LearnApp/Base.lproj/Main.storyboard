@@ -16,13 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Игра началась " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHc-e4-4TR">
-                                <rect key="frame" x="102" y="72" width="187" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSs-Dc-cSo">
                                 <rect key="frame" x="48" y="248" width="75" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -131,11 +124,27 @@
                                     <action selector="touchButton:" destination="iwJ-Kz-lSt" eventType="touchUpInside" id="YCp-vb-vAy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6z-Ke-XkD">
+                                <rect key="frame" x="151" y="116" width="89" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Игра началась " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHc-e4-4TR">
+                                <rect key="frame" x="102" y="61" width="187" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hAi-v1-1wO"/>
                         <color key="backgroundColor" red="0.94486952319587625" green="0.94486952319587625" blue="0.94486952319587625" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
+                        <outlet property="nextDigit" destination="b6z-Ke-XkD" id="h7S-rL-dPy"/>
+                        <outlet property="statusGame" destination="vHc-e4-4TR" id="ZB4-pL-nOV"/>
                         <outletCollection property="buttons" destination="w7V-Bz-a8f" collectionClass="NSMutableArray" id="heR-5D-Dhq"/>
                         <outletCollection property="buttons" destination="tSs-Dc-cSo" collectionClass="NSMutableArray" id="DLf-xP-dqA"/>
                         <outletCollection property="buttons" destination="IJI-p9-oiz" collectionClass="NSMutableArray" id="pQ3-kq-zXr"/>
@@ -149,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23B-LZ-KdJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-171.01449275362319" y="111.83035714285714"/>
+            <point key="canvasLocation" x="-172.30769230769229" y="111.61137440758293"/>
         </scene>
     </scenes>
     <resources>
