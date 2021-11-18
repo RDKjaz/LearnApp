@@ -10,7 +10,9 @@ import Foundation
 /// Статусы игры
 public enum StatusGame {
     // Начало игры
-    case start
+    case start		
     // Победа
     case win
+    // Проигрыш
+    case lose
 }

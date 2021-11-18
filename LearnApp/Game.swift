@@ -16,6 +16,8 @@ public class Game {
         var title:String
         /// Найдено ли число
         var isFound:Bool = false
+        /// Сделана ли ошибка
+        var isError:Bool = false
     }
     
     /// Массив чисел
@@ -28,10 +30,29 @@ public class Game {
     private var countItems:Int
     
     var nextItem:Item?
-    var status:StatusGame = .start
+    var status:StatusGame = .start{
+        didSet{
+            if status != .start{
+                stopGame()
+            }
+        }
+    }
     
-    init(countItems:Int) {
+    private var timeForGame:Int{
+        didSet{
+            if timeForGame == 0 {
+                status = .lose
+            }
+            updateTimer(status, timeForGame)
+        }
+    }
+    private var timer:Timer?
+    private var updateTimer:(StatusGame,Int)->()
+    
+    init(countItems:Int, time:Int, updateTimer:@escaping (_ status:StatusGame, _ seconds:Int)->()) {
         self.countItems = countItems
+        self.timeForGame = time
+        self.updateTimer = updateTimer
         setupGame()
     }
     
@@ -45,20 +66,41 @@ public class Game {
         }
         
         nextItem = items.shuffled().first
+        
+        updateTimer(status, timeForGame)
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
+            self?.timeForGame -= 1
+        })
     }
     
     /// Проверить нажатую кнопки и сравнить
     /// - Parameter index: Индекс кнопки
     public func check(index:Int){
+        guard status == .start else {return}
         if items[index].title == nextItem?.title {
             items[index].isFound = true
             nextItem = items.shuffled().first(where: { (item) -> Bool in
                 item.isFound == false
             })
         }
+        else{
+            items[index].isError = true
+        }
         
         if nextItem == nil {
             status = .win
         }
+    }
+    
+    private func stopGame(){
+        timer?.invalidate()
+    }
+}
+
+extension Int{
+    func secondsToString()->String{
+        let minutes = self / 60
+        let seconds = self % 60
+        return String(format: "%d:%02d", minutes, seconds)
     }
 }

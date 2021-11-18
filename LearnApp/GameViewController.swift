@@ -14,8 +14,13 @@ class GameViewController: UIViewController {
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet weak var statusGame: UILabel!
     @IBOutlet weak var nextDigit: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
-    lazy var game = Game(countItems: buttons.count)
+    lazy var game = Game(countItems: buttons.count, time: 30) { [weak self](status, time) in
+        guard let self = self else {return}
+        self.timerLabel.text = time.secondsToString()
+        self.updateInfoGame(with: status)
+    }
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -45,13 +50,34 @@ class GameViewController: UIViewController {
     private func updateScreen(){
         for index in game.items.indices {
             buttons[index].isHidden = game.items[index].isFound
+            
+            if game.items[index].isError{
+                UIView.animate(withDuration: 0.3) {[weak self] in
+                    self?.buttons[index].backgroundColor = .red
+                } completion: { [weak self] (_) in
+                    self?.buttons[index].backgroundColor = .cyan
+                    self?.game.items[index].isError = false
+                }
+            }
         }
         
         nextDigit.text = game.nextItem?.title
-            
-        if game.status == .win {
+        
+        
+        updateInfoGame(with: game.status)
+    }
+    
+    private func updateInfoGame(with status:StatusGame){
+        switch  status {
+        case .start:
+            statusGame.text = "Игра началась"
+            statusGame.textColor = .black
+        case .win:
             statusGame.text = "Вы выиграли"
             statusGame.textColor = .green
+        case .lose:
+            statusGame.text = "Вы проиграли"
+            statusGame.textColor = .red
         }
     }
 }
