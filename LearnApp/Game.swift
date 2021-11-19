@@ -37,13 +37,13 @@ public class Game {
             }
         }
     }
-    
-    private var timeForGame:Int{
+    private var timeForGame:Int
+    private var secondsGame:Int{
         didSet{
-            if timeForGame == 0 {
+            if secondsGame == 0 {
                 status = .lose
             }
-            updateTimer(status, timeForGame)
+            updateTimer(status, secondsGame)
         }
     }
     private var timer:Timer?
@@ -52,6 +52,7 @@ public class Game {
     init(countItems:Int, time:Int, updateTimer:@escaping (_ status:StatusGame, _ seconds:Int)->()) {
         self.countItems = countItems
         self.timeForGame = time
+        self.secondsGame = time
         self.updateTimer = updateTimer
         setupGame()
     }
@@ -59,7 +60,7 @@ public class Game {
     /// Сконфигурировать игру
     private func setupGame(){
         var digits = data.shuffled()
-        
+        items.removeAll()
         while items.count < countItems {
             let item = Item(title: String(digits.removeFirst()))
             items.append(item)
@@ -67,10 +68,16 @@ public class Game {
         
         nextItem = items.shuffled().first
         
-        updateTimer(status, timeForGame)
+        updateTimer(status, secondsGame)
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self](_) in
-            self?.timeForGame -= 1
+            self?.secondsGame -= 1
         })
+    }
+    
+    func newGame(){
+        status = .start
+        self.secondsGame = self.timeForGame
+        setupGame()
     }
     
     /// Проверить нажатую кнопки и сравнить

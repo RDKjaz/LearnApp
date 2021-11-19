@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var statusGame: UILabel!
     @IBOutlet weak var nextDigit: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var newGameButton: UIButton!
     
     lazy var game = Game(countItems: buttons.count, time: 30) { [weak self](status, time) in
         guard let self = self else {return}
@@ -36,6 +37,11 @@ class GameViewController: UIViewController {
         updateScreen()
     }
     
+    @IBAction func newGame(_ sender: UIButton) {
+        game.newGame()
+        sender.isHidden = true
+        setupScreen()
+    }
     /// Настрйока экрана
     private func setupScreen(){
         for index in game.items.indices {
@@ -72,12 +78,15 @@ class GameViewController: UIViewController {
         case .start:
             statusGame.text = "Игра началась"
             statusGame.textColor = .black
+            newGameButton.isHidden = true
         case .win:
             statusGame.text = "Вы выиграли"
             statusGame.textColor = .green
+            newGameButton.isHidden = false
         case .lose:
             statusGame.text = "Вы проиграли"
             statusGame.textColor = .red
+            newGameButton.isHidden = false
         }
     }
 }

@@ -145,11 +145,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UV2-IO-a4F">
+                                <rect key="frame" x="142" y="680" width="113" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Новая игра"/>
+                                <connections>
+                                    <action selector="newGame:" destination="iwJ-Kz-lSt" eventType="touchUpInside" id="j91-Pa-MjV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hAi-v1-1wO"/>
                         <color key="backgroundColor" red="0.94486952319587625" green="0.94486952319587625" blue="0.94486952319587625" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
+                        <outlet property="newGameButton" destination="UV2-IO-a4F" id="qMZ-na-x0l"/>
                         <outlet property="nextDigit" destination="b6z-Ke-XkD" id="h7S-rL-dPy"/>
                         <outlet property="statusGame" destination="vHc-e4-4TR" id="ZB4-pL-nOV"/>
                         <outlet property="timerLabel" destination="bWi-MZ-0au" id="PJb-T0-gg7"/>
