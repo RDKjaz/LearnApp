@@ -15,7 +15,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var statusGame: UILabel!
     @IBOutlet weak var nextDigit: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var newGameButton: UIButton!
     
     lazy var game = Game(countItems: buttons.count) { [weak self](status, time) in
         guard let self = self else {return}
@@ -85,15 +84,60 @@ class GameViewController: UIViewController {
         case .start:
             statusGame.text = "Игра началась"
             statusGame.textColor = .black
-            newGameButton.isHidden = true
         case .win:
             statusGame.text = "Вы выиграли"
             statusGame.textColor = .green
-            newGameButton.isHidden = false
+            if game.isNewRecord {
+                showAlert()
+            } else {
+                showAlertActionSheet()
+            }
         case .lose:
             statusGame.text = "Вы проиграли"
             statusGame.textColor = .red
-            newGameButton.isHidden = false
+            showAlertActionSheet()
         }
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController.init(title: "Поздравляем", message: "Вы установили новый рекорд", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction.init(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showAlertActionSheet() {
+        let alert = UIAlertController.init(title: "Что сделать далее?", message: nil, preferredStyle: .actionSheet)
+        
+        let newGameAction = UIAlertAction.init(title: "Новая игра", style: .default) { [weak self](_) in
+            self?.game.newGame()
+            self?.setupScreen()
+        }
+        
+        let showRecord = UIAlertAction.init(title: "Посмотреть рекорд", style: .default) { [weak self](_) in
+            self?.performSegue(withIdentifier: "recordVC", sender: nil)
+        }
+        
+        let menuAction = UIAlertAction.init(title: "Перейти в меню", style: .default) { [weak self](_) in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
+        let cancelAction = UIAlertAction.init(title: "Отмена", style: .destructive, handler: nil)
+        
+        alert.addAction(newGameAction)
+        alert.addAction(showRecord)
+        alert.addAction(menuAction)
+        alert.addAction(cancelAction)
+        
+        if let popover = alert.popoverPresentationController {
+            popover.sourceView = self.view
+            popover.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popover.permittedArrowDirections = UIPopoverArrowDirection.init(rawValue: 0)
+            // or popover.sourceView = statusGame
+        }
+        
+        present(alert, animated: true, completion: nil)
     }
 }

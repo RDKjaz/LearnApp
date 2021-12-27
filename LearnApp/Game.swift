@@ -30,9 +30,18 @@ public class Game {
     private var countItems:Int
     
     var nextItem:Item?
+    var isNewRecord: Bool = false
     var status:StatusGame = .start{
         didSet{
             if status != .start{
+                if status == .win && Settings.shared.currentSettings.timerState {
+                    let record = UserDefaults.standard.integer(forKey: KeysUserDefaults.recordGame)
+                    
+                    if record == 0 || secondsGame < record {
+                        UserDefaults.standard.setValue(secondsGame, forKey: KeysUserDefaults.recordGame)
+                        isNewRecord = true
+                    }
+                }
                 stopGame()
             }
         }
@@ -59,6 +68,8 @@ public class Game {
     
     /// Сконфигурировать игру
     private func setupGame(){
+        isNewRecord = false
+        
         var digits = data.shuffled()
         items.removeAll()
         while items.count < countItems {
