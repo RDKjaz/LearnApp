@@ -7,8 +7,12 @@
 
 import Foundation
 
-
-enum KeysUserDefaults {
-    static let settingsGame = "settingsGame"
-    static let recordGame = "recordGame"
+/// Ключи для хранилища
+public enum KeysUserDefaults {
+    
+    /// Настройки игры
+    public static let settingsGame = "settingsGame"
+    
+    /// Рекорд в игре
+    public static let recordGame = "recordGame"
 }

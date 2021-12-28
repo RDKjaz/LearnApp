@@ -12,6 +12,8 @@
 		EF2E28192735D83D00D95861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2E28172735D83D00D95861 /* Main.storyboard */; };
 		EF2E281B2735D83E00D95861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF2E281A2735D83E00D95861 /* Assets.xcassets */; };
 		EF2E281E2735D83E00D95861 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF2E281C2735D83E00D95861 /* LaunchScreen.storyboard */; };
+		EF884219277A67BE00287DA2 /* LearnAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF884218277A67BE00287DA2 /* LearnAppUITests.swift */; };
+		EF88421B277A67BE00287DA2 /* LearnAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF88421A277A67BE00287DA2 /* LearnAppUITestsLaunchTests.swift */; };
 		EF907682277A25BA004354B6 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF907681277A25BA004354B6 /* RecordViewController.swift */; };
 		EF994F43273DA07800D475B9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF994F42273DA07800D475B9 /* GameViewController.swift */; };
 		EFAF3B522779E94100A36C83 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF3B512779E94100A36C83 /* SettingsTableViewController.swift */; };
@@ -22,6 +24,16 @@
 		EFEA905627419C5900C7BD90 /* StatusGameEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEA905527419C5900C7BD90 /* StatusGameEnum.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EF88421C277A67BE00287DA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF2E28062735D83D00D95861 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF2E280D2735D83D00D95861;
+			remoteInfo = LearnApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		EF2E280E2735D83D00D95861 /* LearnApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF2E28112735D83D00D95861 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +42,9 @@
 		EF2E281A2735D83E00D95861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF2E281D2735D83E00D95861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF2E281F2735D83E00D95861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF884216277A67BE00287DA2 /* LearnAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LearnAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF884218277A67BE00287DA2 /* LearnAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnAppUITests.swift; sourceTree = "<group>"; };
+		EF88421A277A67BE00287DA2 /* LearnAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EF907681277A25BA004354B6 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		EF994F42273DA07800D475B9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EFAF3B512779E94100A36C83 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -48,13 +63,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF884213277A67BE00287DA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF11FBA7277B6DA90034CE8E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF2E28172735D83D00D95861 /* Main.storyboard */,
+				EF2E281C2735D83E00D95861 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF11FBA8277B6DDF0034CE8E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EF2E281A2735D83E00D95861 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		EF2E28052735D83D00D95861 = {
 			isa = PBXGroup;
 			children = (
 				EF2E28102735D83D00D95861 /* LearnApp */,
+				EF884217277A67BE00287DA2 /* LearnAppUITests */,
 				EF2E280F2735D83D00D95861 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				EF2E280E2735D83D00D95861 /* LearnApp.app */,
+				EF884216277A67BE00287DA2 /* LearnAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,21 +111,45 @@
 		EF2E28102735D83D00D95861 /* LearnApp */ = {
 			isa = PBXGroup;
 			children = (
-				EFEA905427419C2600C7BD90 /* Enums */,
-				EF2E28112735D83D00D95861 /* AppDelegate.swift */,
 				EF2E28132735D83D00D95861 /* SceneDelegate.swift */,
-				EF2E28172735D83D00D95861 /* Main.storyboard */,
-				EF2E281A2735D83E00D95861 /* Assets.xcassets */,
-				EF2E281C2735D83E00D95861 /* LaunchScreen.storyboard */,
+				EF2E28112735D83D00D95861 /* AppDelegate.swift */,
 				EF2E281F2735D83E00D95861 /* Info.plist */,
-				EF994F42273DA07800D475B9 /* GameViewController.swift */,
-				EFEA90522741954400C7BD90 /* Game.swift */,
-				EFAF3B512779E94100A36C83 /* SettingsTableViewController.swift */,
-				EFAF3B532779E97800A36C83 /* SelectTimeViewController.swift */,
-				EFAF3B552779F0F000A36C83 /* SettingsGame.swift */,
-				EF907681277A25BA004354B6 /* RecordViewController.swift */,
+				EF11FBA8277B6DDF0034CE8E /* Resources */,
+				EF11FBA7277B6DA90034CE8E /* Views */,
+				EF884211277A673900287DA2 /* Controllers */,
+				EF884210277A662A00287DA2 /* Models */,
+				EFEA905427419C2600C7BD90 /* Enums */,
 			);
 			path = LearnApp;
+			sourceTree = "<group>";
+		};
+		EF884210277A662A00287DA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFAF3B552779F0F000A36C83 /* SettingsGame.swift */,
+				EFEA90522741954400C7BD90 /* Game.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EF884211277A673900287DA2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EF994F42273DA07800D475B9 /* GameViewController.swift */,
+				EFAF3B512779E94100A36C83 /* SettingsTableViewController.swift */,
+				EFAF3B532779E97800A36C83 /* SelectTimeViewController.swift */,
+				EF907681277A25BA004354B6 /* RecordViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EF884217277A67BE00287DA2 /* LearnAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EF884218277A67BE00287DA2 /* LearnAppUITests.swift */,
+				EF88421A277A67BE00287DA2 /* LearnAppUITestsLaunchTests.swift */,
+			);
+			path = LearnAppUITests;
 			sourceTree = "<group>";
 		};
 		EFEA905427419C2600C7BD90 /* Enums */ = {
@@ -116,17 +181,39 @@
 			productReference = EF2E280E2735D83D00D95861 /* LearnApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EF884215277A67BE00287DA2 /* LearnAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF88421E277A67BE00287DA2 /* Build configuration list for PBXNativeTarget "LearnAppUITests" */;
+			buildPhases = (
+				EF884212277A67BE00287DA2 /* Sources */,
+				EF884213277A67BE00287DA2 /* Frameworks */,
+				EF884214277A67BE00287DA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF88421D277A67BE00287DA2 /* PBXTargetDependency */,
+			);
+			name = LearnAppUITests;
+			productName = LearnAppUITests;
+			productReference = EF884216277A67BE00287DA2 /* LearnAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		EF2E28062735D83D00D95861 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					EF2E280D2735D83D00D95861 = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					EF884215277A67BE00287DA2 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = EF2E280D2735D83D00D95861;
 					};
 				};
 			};
@@ -144,6 +231,7 @@
 			projectRoot = "";
 			targets = (
 				EF2E280D2735D83D00D95861 /* LearnApp */,
+				EF884215277A67BE00287DA2 /* LearnAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -156,6 +244,13 @@
 				EF2E281E2735D83E00D95861 /* LaunchScreen.storyboard in Resources */,
 				EF2E281B2735D83E00D95861 /* Assets.xcassets in Resources */,
 				EF2E28192735D83D00D95861 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF884214277A67BE00287DA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +274,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF884212277A67BE00287DA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF88421B277A67BE00287DA2 /* LearnAppUITestsLaunchTests.swift in Sources */,
+				EF884219277A67BE00287DA2 /* LearnAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF88421D277A67BE00287DA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF2E280D2735D83D00D95861 /* LearnApp */;
+			targetProxy = EF88421C277A67BE00287DA2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EF2E28172735D83D00D95861 /* Main.storyboard */ = {
@@ -355,6 +467,54 @@
 			};
 			name = Release;
 		};
+		EF88421F277A67BE00287DA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 46CM9XJTAY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = radikgazetdinov.LearnAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LearnApp;
+			};
+			name = Debug;
+		};
+		EF884220277A67BE00287DA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 46CM9XJTAY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = radikgazetdinov.LearnAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LearnApp;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -372,6 +532,15 @@
 			buildConfigurations = (
 				EF2E28232735D83E00D95861 /* Debug */,
 				EF2E28242735D83E00D95861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF88421E277A67BE00287DA2 /* Build configuration list for PBXNativeTarget "LearnAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF88421F277A67BE00287DA2 /* Debug */,
+				EF884220277A67BE00287DA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

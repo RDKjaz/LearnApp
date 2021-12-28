@@ -7,10 +7,15 @@
 
 import UIKit
 
+/// Контроллер для настроек игры
 class SettingsTableViewController: UITableViewController {
 
+    /// Нужен ли таймер
     @IBOutlet weak var switchTimer: UISwitch!
+    
+    /// Время игры
     @IBOutlet weak var timeGameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,16 +25,19 @@ class SettingsTableViewController: UITableViewController {
         loadSettings()
     }
     
+    /// Изменить необходимость таймера в игре
     @IBAction func changeTimerState(_ sender: UISwitch) {
         Settings.shared.currentSettings.timerState = sender.isOn
     }
     
+    /// Сбросить настройки к дефолтным
     @IBAction func resetSettings(_ sender: Any) {
         Settings.shared.resetSettings()
         loadSettings()
     }
     
-    func loadSettings() {
+    /// Загрузить настрйоки
+    private func loadSettings() {
         timeGameLabel.text = "\(Settings.shared.currentSettings.timeForGame) сек"
         switchTimer.isOn = Settings.shared.currentSettings.timerState
     }

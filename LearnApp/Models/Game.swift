@@ -11,29 +11,33 @@ import Foundation
 public class Game {
     
     /// Модель кнопки
-    struct Item {
+    public struct Item {
         /// Надпись
-        var title:String
+        var title: String
+        
         /// Найдено ли число
-        var isFound:Bool = false
+        var isFound: Bool = false
+        
         /// Сделана ли ошибка
-        var isError:Bool = false
+        var isError: Bool = false
     }
     
-    /// Массив чисел
-    private let data:[Int] = Array(1...99)
-    
-    /// Массив  модели кнопок
-    var items:[Item] = []
+    /// Массив  кнопок c цифрами для игры
+    public var items: [Item] = []
     
     /// Количество кнопок
-    private var countItems:Int
+    private var countItems: Int
     
-    var nextItem:Item?
-    var isNewRecord: Bool = false
-    var status:StatusGame = .start{
+    /// Следующее число, которое нужно найти
+    public var nextItem: Item?
+    
+    ///Новый ли рекорд
+    public var isNewRecord: Bool = false
+    
+    /// Статус игры
+    public var status: StatusGame = .start{
         didSet{
-            if status != .start{
+            if status != .start {
                 if status == .win && Settings.shared.currentSettings.timerState {
                     let record = UserDefaults.standard.integer(forKey: KeysUserDefaults.recordGame)
                     
@@ -46,8 +50,12 @@ public class Game {
             }
         }
     }
-    private var timeForGame:Int
-    private var secondsGame:Int{
+    
+    /// Время для игры
+    private var timeForGame: Int
+    
+    /// Потраченное время на игру
+    private var secondsGame: Int{
         didSet{
             if secondsGame == 0 {
                 status = .lose
@@ -55,9 +63,17 @@ public class Game {
             updateTimer(status, secondsGame)
         }
     }
-    private var timer:Timer?
-    private var updateTimer:(StatusGame,Int)->()
     
+    /// Таймер
+    private var timer:Timer?
+    
+    /// Обновить таймер
+    private var updateTimer: (StatusGame,Int)->()
+    
+    /// Инициализатор
+    /// - Parameters:
+    ///   - countItems: Количество кнопок
+    ///   - updateTimer: Обновление таймера
     init(countItems:Int, updateTimer:@escaping (_ status:StatusGame, _ seconds:Int)->()) {
         self.countItems = countItems
         self.timeForGame = Settings.shared.currentSettings.timeForGame
@@ -66,12 +82,14 @@ public class Game {
         setupGame()
     }
     
-    /// Сконфигурировать игру
+    /// Сконфигурировать игру перед началом
     private func setupGame(){
         isNewRecord = false
         
-        var digits = data.shuffled()
+        var digits = Array(1...99).shuffled()
+        
         items.removeAll()
+        
         while items.count < countItems {
             let item = Item(title: String(digits.removeFirst()))
             items.append(item)
@@ -88,15 +106,16 @@ public class Game {
         }
     }
     
-    func newGame(){
+    /// Начать новую игру
+    public func newGame(){
         status = .start
         self.secondsGame = self.timeForGame
         setupGame()
     }
     
-    /// Проверить нажатую кнопки и сравнить
+    /// Проверить нажатую кнопку и сравнить с заданным числом
     /// - Parameter index: Индекс кнопки
-    public func check(index:Int){
+    public func check(index: Int) {
         guard status == .start else {return}
         if items[index].title == nextItem?.title {
             items[index].isFound = true
@@ -104,7 +123,7 @@ public class Game {
                 item.isFound == false
             })
         }
-        else{
+        else {
             items[index].isError = true
         }
         
@@ -113,13 +132,18 @@ public class Game {
         }
     }
     
-    func stopGame(){
+    /// Остановить игру
+    public func stopGame(){
         timer?.invalidate()
     }
 }
 
-extension Int{
-    func secondsToString()->String{
+
+extension Int {
+    
+    /// Перевести секунды в строку
+    /// - Returns: Строку с оставшимися секундами
+    public func secondsToString()->String {
         let minutes = self / 60
         let seconds = self % 60
         return String(format: "%d:%02d", minutes, seconds)

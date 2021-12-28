@@ -7,9 +7,12 @@
 
 import UIKit
 
+/// Контроллер для отображения модального окна с рекордом
 class RecordViewController: UIViewController {
     
+    /// Рекорд
     @IBOutlet weak var recordLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

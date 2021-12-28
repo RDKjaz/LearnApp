@@ -7,13 +7,19 @@
  
 import UIKit
 
-
 /// Контроллер главного экрана
 class GameViewController: UIViewController {
-
+    
+    /// Массив кнопок
     @IBOutlet var buttons: [UIButton]!
+    
+    /// Статус игры
     @IBOutlet weak var statusGame: UILabel!
+    
+    /// Следующее число
     @IBOutlet weak var nextDigit: UILabel!
+    
+    /// Таймер
     @IBOutlet weak var timerLabel: UILabel!
     
     lazy var game = Game(countItems: buttons.count) { [weak self](status, time) in
@@ -41,11 +47,13 @@ class GameViewController: UIViewController {
         updateScreen()
     }
     
+    /// Новая игра
     @IBAction func newGame(_ sender: UIButton) {
         game.newGame()
         sender.isHidden = true
         setupScreen()
     }
+    
     /// Настрйока экрана
     private func setupScreen(){
         for index in game.items.indices {
@@ -64,7 +72,7 @@ class GameViewController: UIViewController {
             buttons[index].alpha = game.items[index].isFound ? 0 : 1
             buttons[index].isEnabled = !game.items[index].isFound
             
-            if game.items[index].isError{
+            if game.items[index].isError {
                 UIView.animate(withDuration: 0.3) {[weak self] in
                     self?.buttons[index].backgroundColor = .red
                 } completion: { [weak self] (_) in
@@ -79,8 +87,10 @@ class GameViewController: UIViewController {
         updateInfoGame(with: game.status)
     }
     
-    private func updateInfoGame(with status:StatusGame){
-        switch  status {
+    /// Обновить информациб об игре
+    /// - Parameter status: Статус игры
+    private func updateInfoGame(with status: StatusGame){
+        switch status {
         case .start:
             statusGame.text = "Игра началась"
             statusGame.textColor = .black
@@ -99,6 +109,7 @@ class GameViewController: UIViewController {
         }
     }
     
+    /// Показать предупреждение о победе и новом рекорде
     private func showAlert() {
         let alert = UIAlertController.init(title: "Поздравляем", message: "Вы установили новый рекорд", preferredStyle: .alert)
         
@@ -108,6 +119,7 @@ class GameViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    /// Показать предупреждение если рекорд не побит и игра проиграна
     private func showAlertActionSheet() {
         let alert = UIAlertController.init(title: "Что сделать далее?", message: nil, preferredStyle: .actionSheet)
         

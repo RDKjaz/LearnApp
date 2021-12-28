@@ -7,16 +7,18 @@
 
 import UIKit
 
+/// Контроллер для выбора времени игры
 class SelectTimeViewController: UIViewController {
 
     var data: [Int] = []
     
     @IBOutlet weak var tableView: UITableView! {
-        didSet {
+        didSet{
             tableView?.dataSource = self
             tableView?.delegate = self
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
